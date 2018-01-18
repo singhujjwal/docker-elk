@@ -12,6 +12,8 @@ services:
       - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      http_proxy: "http://proxy-wsa.esl.cisco.com:80"
+      https_proxy: "http://proxy-wsa.esl.cisco.com:80"
     networks:
       - elk
 
@@ -25,6 +27,8 @@ services:
       - "5044:5044"
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+      http_proxy: "http://proxy-wsa.esl.cisco.com:80"
+      https_proxy: "http://proxy-wsa.esl.cisco.com:80"
     networks:
       - elk
     depends_on:
@@ -41,6 +45,9 @@ services:
       - elk
     depends_on:
       - elasticsearch
+    environment:
+      http_proxy: "http://proxy-wsa.esl.cisco.com:80"
+      https_proxy: "http://proxy-wsa.esl.cisco.com:80"
 
 networks:
 
